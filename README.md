@@ -67,3 +67,11 @@ POST `/api/vehicles`
   "firmwareVersion": "v1.0.0",
   "lastServiceDate": "2026-02-28"
 }
+**Response**
+{
+  "id": 1,
+  "vin": "VIN12345",
+  "model": "Tesla Model 3",
+  "firmwareVersion": "v1.0.0",
+  "lastServiceDate": "2026-02-28"
+}
