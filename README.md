@@ -73,7 +73,6 @@ https://fleet-management-api-0oou.onrender.com/api/vehicles
 
 Request Body:
 
-```json
 {
   "vin": "VIN12345",
   "model": "Tesla Model 3",
