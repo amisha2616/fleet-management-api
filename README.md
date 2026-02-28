@@ -1,17 +1,20 @@
 # 🚗 Fleet Management API
 
-A **production-ready Spring Boot microservice** for managing vehicle records.  
-This backend service demonstrates REST API design, validation, exception handling, unit testing, Dockerization, and cloud deployment.
+A production-ready Spring Boot microservice for managing vehicle records.
+
+This backend project demonstrates REST API development, layered architecture, validation, centralized exception handling, unit testing, Dockerization, and cloud deployment.
 
 ---
 
 ## 🔥 Live Demo
 
-**Base URL (Deployed on Render):**  
+**Base URL:**  
 https://fleet-management-api-0oou.onrender.com
 
-Try the API:
+Example endpoint:
+
 POST https://fleet-management-api-0oou.onrender.com/api/vehicles
+
 
 ---
 
@@ -23,7 +26,7 @@ POST https://fleet-management-api-0oou.onrender.com/api/vehicles
 | Framework | Spring Boot 3.2.5 |
 | Persistence | Spring Data JPA |
 | Validation | Jakarta Bean Validation |
-| Database | H2 (Local), PostgreSQL support |
+| Database | H2 (Local), PostgreSQL Support |
 | Testing | JUnit 5, Mockito |
 | Containerization | Docker |
 | Deployment | Render |
@@ -32,20 +35,35 @@ POST https://fleet-management-api-0oou.onrender.com/api/vehicles
 
 ## 📦 Features
 
-✔ RESTful CRUD endpoints  
-✔ Layered architecture (Controller → Service → Repository)  
-✔ Request input validation  
-✔ Centralized global exception handling  
-✔ Unit testing (Service layer)  
-✔ Dockerized application  
-✔ Cloud-deployed with public API access
+- RESTful CRUD APIs  
+- Layered architecture (Controller → Service → Repository)  
+- Input validation with structured error responses  
+- Global exception handling  
+- Unit testing for service layer (Mockito)  
+- Dockerized application  
+- Public cloud deployment  
+
+---
+
+## 🧱 Architecture
+
+
+Controller → Service → Repository → Database
+
+
+- **Controller** handles HTTP requests  
+- **Service** contains business logic  
+- **Repository** manages data persistence using JPA  
+- **Database** stores vehicle records  
 
 ---
 
 ## 📌 API Endpoints
 
-> **Base Path:**  
-> `https://fleet-management-api-0oou.onrender.com/api/vehicles`
+Base Path:
+
+https://fleet-management-api-0oou.onrender.com/api/vehicles
+
 
 ---
 
@@ -53,7 +71,7 @@ POST https://fleet-management-api-0oou.onrender.com/api/vehicles
 
 **POST** `/api/vehicles`
 
-**Request Body:**
+Request Body:
 
 ```json
 {
@@ -62,7 +80,9 @@ POST https://fleet-management-api-0oou.onrender.com/api/vehicles
   "firmwareVersion": "v1.0.0",
   "lastServiceDate": "2026-02-28"
 }
+
 Response:
+
 {
   "id": 1,
   "vin": "VIN12345",
@@ -72,18 +92,16 @@ Response:
 }
 📋 Get All Vehicles
 GET /api/vehicles
-
-Get Vehicle By ID
+📍 Get Vehicle by ID
 GET /api/vehicles/{id}
-
-Update Vehicle
+✏️ Update Vehicle
 PUT /api/vehicles/{id}
-
-Delete Vehicle
+🗑️ Delete Vehicle
 DELETE /api/vehicles/{id}
+🚨 Validation & Error Handling
 
-Validation & Errors
-Invalid requests return a structured response:
+Invalid input returns a structured response:
+
 {
   "errors": {
     "vin": "VIN cannot be empty",
@@ -92,26 +110,61 @@ Invalid requests return a structured response:
   "timestamp": "2026-02-28T18:28:47.8874171",
   "status": 400
 }
-Testing
-Run all unit tests:
+🧪 Testing
+
+Run all tests:
+
 ./mvnw test
-🚀 Running Locally
-Build
+
+✔ Service-layer unit tests using Mockito
+✔ Validation behavior verification
+
+🚀 Run Locally
+
+Build:
+
 ./mvnw clean install
-Run
+
+Run:
+
 java -jar target/fleetapi-0.0.1-SNAPSHOT.jar
+
 Access locally:
+
 http://localhost:8080/api/vehicles
-Docker
-Dockerfile is included.
-Build Image
+🐳 Docker
+
+Dockerfile included for containerized deployment.
+
+Build Docker image:
+
 docker build -t fleetapi .
-Run Container
+
+Run container:
+
 docker run -p 8080:8080 fleetapi
-Deployment
-This project is deployed on Render using Docker.
+🌍 Deployment
+
+Deployed on Render using Docker.
 
 Live API:
-🔗 https://fleet-management-api-0oou.onrender.com
-About the Author
+https://fleet-management-api-0oou.onrender.com
+
+📁 Project Structure
+fleet-management-api/
+├── src/
+│   ├── main/java/com/amisha/fleetapi
+│   │   ├── controller/
+│   │   ├── service/
+│   │   ├── repository/
+│   │   ├── entity/
+│   │   └── exception/
+│   └── test/java/com/amisha/fleetapi
+├── Dockerfile
+├── mvnw
+├── pom.xml
+└── README.md
+👩‍💻 Author
+
 Amisha Sahu
+Spring Boot Backend Project
