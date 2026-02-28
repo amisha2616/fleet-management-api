@@ -67,7 +67,7 @@ POST `/api/vehicles`
   "firmwareVersion": "v1.0.0",
   "lastServiceDate": "2026-02-28"
 }
-**Response**
+Response
 {
   "id": 1,
   "vin": "VIN12345",
