@@ -1,7 +1,6 @@
 # 🚗 Fleet Management API
 
 A production-ready Spring Boot microservice for managing vehicle records.
-
 This backend project demonstrates REST API development, layered architecture, validation, centralized exception handling, unit testing, Dockerization, and cloud deployment.
 
 ---
@@ -72,16 +71,16 @@ https://fleet-management-api-0oou.onrender.com/api/vehicles
 **POST** `/api/vehicles`
 
 Request Body:
-
+```
 {
   "vin": "VIN12345",
   "model": "Tesla Model 3",
   "firmwareVersion": "v1.0.0",
   "lastServiceDate": "2026-02-28"
 }
-
+```
 Response
-
+```
 {
   "id": 1,
   "vin": "VIN12345",
@@ -89,22 +88,48 @@ Response
   "firmwareVersion": "v1.0.0",
   "lastServiceDate": "2026-02-28"
 }
+```
+**Validation & Error Handling**
+Example validation error response:
 
-Run Locally
+```
+{
+  "errors": {
+    "vin": "VIN cannot be empty",
+    "model": "Model cannot be empty"
+  },
+  "timestamp": "2026-02-28T18:28:47.8874171",
+  "status": 400
+}
+```
+**Testing**
+Run tests:
+`./mvnw test`
 
-Build:./mvnw clean install
+
+**Run Locally**
+
+Build:
+`./mvnw clean install`
+
+Run:
+`java -jar target/fleetapi-0.0.1-SNAPSHOT.jar`
 
 
-Run:java -jar target/fleetapi-0.0.1-SNAPSHOT.jar
+Access locally:
+`http://localhost:8080/api/vehicles`
 
+**Docker**
+Build Docker image:
+`docker build -t fleetapi .`
 
-Access locally:http://localhost:8080/api/vehicles
+Run container:
+`docker run -p 8080:8080 fleetapi`
+**Deployment**
 
-Docker
-Build Docker image:docker build -t fleetapi .
+Deployed on Render using Docker.
 
-
-Run container:docker run -p 8080:8080 fleetapi
+Live API: https://fleet-management-api-0oou.onrender.com
 
 👩‍💻 Author - Amisha Sahu
 
