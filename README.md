@@ -91,13 +91,19 @@ Response
 }
 
 Run Locally
+
 Build:./mvnw clean install
+
+
 Run:java -jar target/fleetapi-0.0.1-SNAPSHOT.jar
+
+
 Access locally:http://localhost:8080/api/vehicles
 
 Docker
-
 Build Docker image:docker build -t fleetapi .
+
+
 Run container:docker run -p 8080:8080 fleetapi
 
 👩‍💻 Author - Amisha Sahu
